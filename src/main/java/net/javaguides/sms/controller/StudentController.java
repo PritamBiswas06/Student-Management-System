@@ -6,11 +6,13 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 import net.javaguides.sms.entity.Student;
 import net.javaguides.sms.service.StudentService;
 
 @Controller
+//@RestController
 public class StudentController {
 	
 	private StudentService studentService;
@@ -73,5 +75,7 @@ public class StudentController {
 		studentService.deleteStudentById(id);
 		return "redirect:/students";
 	}
+	
+	
 	
 }
