@@ -1,5 +1,7 @@
 package net.javaguides.sms.controller;
 
+import org.springframework.cache.annotation.Cacheable;
+import org.springframework.cache.annotation.EnableCaching;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -12,6 +14,7 @@ import net.javaguides.sms.entity.Student;
 import net.javaguides.sms.service.StudentService;
 
 @Controller
+//@EnableCaching
 //@RestController
 public class StudentController {
 	
@@ -46,6 +49,7 @@ public class StudentController {
 	}
 	
 	@GetMapping("/students/edit/{id}")
+//	@Cacheable(key ="#id",value="Student")
 	public String editStudentForm(@PathVariable Long id, Model model) {
 		model.addAttribute("student", studentService.getStudentById(id));
 		return "edit_student";
