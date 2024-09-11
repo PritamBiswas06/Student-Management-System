@@ -1,14 +1,11 @@
 package net.javaguides.sms.controller;
 
-import org.springframework.cache.annotation.Cacheable;
-import org.springframework.cache.annotation.EnableCaching;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RestController;
 
 import net.javaguides.sms.entity.Student;
 import net.javaguides.sms.service.StudentService;
@@ -79,7 +76,6 @@ public class StudentController {
 		studentService.deleteStudentById(id);
 		return "redirect:/students";
 	}
-	
 	
 	
 }
