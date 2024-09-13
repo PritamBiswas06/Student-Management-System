@@ -1,15 +1,11 @@
 package net.javaguides.sms.controller;
 
-import java.util.List;
-
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 
 import net.javaguides.sms.entity.Student;
 import net.javaguides.sms.service.StudentService;
@@ -27,16 +23,6 @@ public class StudentController {
 		super();
 		this.studentService = studentService;
 	}
-
-    @GetMapping("/students")
-    public ResponseEntity<List<Student>> getAllStudents() {
-        return ResponseEntity.ok(studentService.getAllStudents());
-    }
-
-    @PostMapping("/students")
-    public ResponseEntity<Student> addStudent(@RequestBody Student student) {
-        return ResponseEntity.ok(studentService.saveStudent(student));
-    }
 	
 	// handler method to handle list students and return mode and view
 	@GetMapping("/students")

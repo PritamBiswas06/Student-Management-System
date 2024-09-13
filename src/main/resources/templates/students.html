@@ -7,6 +7,16 @@
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
 	integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
 	crossorigin="anonymous">
+
+<style>
+  body {
+    background-image: url('https://www.wfyi.org/files/wfyi/programs_television/current/state-of-higher-ed.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+  }
+</style>
+
 </head>
 <body>
 <nav class="navbar navbar-expand-md bg-dark navbar-dark">
@@ -31,18 +41,18 @@
   </div>
 </nav>
 
-	<div class ="container">
-		<div class = "row">
-			<h1> List Students </h1>
+	<div class="container">
+		<div class="row">
+			<h1 class="btn-outline-light"> Student List </h1>
 		</div>
 		
-		<div class = "row">
-			<div class = "col-lg-3">
-				<a th:href = "@{/students/new}" class = "btn btn-primary btn-sm mb-3"> Add Student</a>
+		<div class="row">
+			<div class="col-lg-3">
+				<a th:href="@{/students/new}" class="btn btn-primary btn-sm mb-3"> Add Student</a>
 			</div>
 		</div>
-		<table class = "table table-striped table-bordered">
-			<thead class = "table-dark">
+		<table class="table table-striped table-bordered">
+			<thead class="table-dark">
 				<tr>
 					<th> Student First Name</th>
 					<th> Student Last Name</th>
@@ -52,16 +62,16 @@
 			</thead>
 			
 			<tbody>
-				<tr th:each = "student: ${students}">
-					<td th:text = "${student.firstName}"></td>
-					<td th:text = "${student.lastName}"></td>
-					<td th:text = "${student.email}"></td>
+				<tr th:each="student: ${students}">
+					<td class="text-light" th:text="${student.firstName}"></td>
+					<td class="text-light" th:text="${student.lastName}"></td>
+					<td class="text-light" th:text="${student.email}"></td>
 					<td>
-						<a th:href = "@{/students/edit/{id}(id=${student.id})}"
-						 class = "btn btn-primary">Update</a>
+						<a th:href="@{/students/edit/{id}(id=${student.id})}"
+						 class="btn btn-primary">Update</a>
 						
-						<a th:href = "@{/students/{id}/delete(id=${student.id})}"
-						 class = "btn btn-danger">Delete</a>
+						<a th:href="@{/students/{id}/delete(id=${student.id})}"
+						 class="btn btn-danger">Delete</a>
 						 
 					</td>
 				</tr>
@@ -70,5 +80,12 @@
 		</table>
 		
 	</div>
+	<footer class="py-5 text-center text-body-secondary bg-body-tertiary">
+        <p class="text-info">Blog template built for <a href="https://getbootstrap.com/" previewlistener="true">sMs</a> by <a
+                href="https://twitter.com/mdo" previewlistener="true">@Pritam</a>.</p>
+        <p class="mb-0">
+            <a th:href="@{/students}">Back to top</a>
+        </p>
+    </footer>
 </body>
 </html>
