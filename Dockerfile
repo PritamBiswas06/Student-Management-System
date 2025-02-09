@@ -1,8 +1,10 @@
 FROM maven:3.8.3-openjdk-17 AS build
+WORKDIR /app
 COPY . .
 RUN mvn clean package -DskipTests
 
 FROM openjdk:17.0.1-jdk-slim
-COPY --from=build /net.javaguides/student-management-system-0.0.1-SNAPSHOT.jar student.jar
+WORKDIR /app
+COPY --from=build /app/target/student-management-system-0.0.1-SNAPSHOT.jar student.jar
 EXPOSE 8080
-ENTRYPOINT ["java","-jar","student.jar"]
+ENTRYPOINT ["java", "-jar", "student.jar"]
