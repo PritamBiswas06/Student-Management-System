@@ -26,6 +26,7 @@
     <groupId>com.mysql</groupId>
     <artifactId>mysql-connector-j</artifactId>
     <version>8.0.33</version>
+    <scope>runtime</scope>  <!-- Ensures the driver is available at runtime but not during compilation -->
 </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
